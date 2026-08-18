@@ -97,10 +97,11 @@ Custo desperdiçado aqui é multiplicado por N agentes.
 
 ## Painel no canvas
 
-Depois de fechar o contrato e a cada mudança de lane, gere/reescreva por inteiro a nota `painel-<NNN-slug>`:
+Depois de fechar o contrato, crie a nota `painel-<NNN-slug>` com nome fixo; a cada mudança de lane, reescreva por inteiro com `note write`:
 
 ```bash
-maestri note write "painel-001-login" "$(cat painel.md)"
+maestri note create "$(cat painel.md)" --name "painel-001-login"   # só na primeira vez
+maestri note write "painel-001-login" "$(cat painel.md)"           # a cada atualização
 ```
 
 Conteúdo e formato em `references/painel.md`.

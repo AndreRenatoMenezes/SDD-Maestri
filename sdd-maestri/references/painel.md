@@ -16,19 +16,17 @@ Nome fixo por feature, para sempre achar a mesma nota:
 painel-<NNN-slug>
 ```
 
-Primeira publicação:
+Primeira publicação — `note create` com `--name` fixa o nome, senão ele seguiria a primeira linha do conteúdo:
+
+```bash
+maestri note create "$(cat painel.md)" --name "painel-001-login"
+```
+
+Nas atualizações seguintes, **reescreva a mesma nota** com `note write` — nunca rode `note create` de novo para a mesma feature, senão vira uma nota duplicada solta no canvas:
 
 ```bash
 maestri note write "painel-001-login" "$(cat painel.md)"
 ```
-
-Nas atualizações seguintes, **reescreva a mesma nota** — nunca crie uma nova para a mesma feature:
-
-```bash
-maestri note write "painel-001-login" "$(cat painel.md)"
-```
-
-Se a nota ainda não existir, confirme com `maestri list` se `note write` a cria automaticamente ou se é preciso um `note create "painel-001-login"` antes — comportamento não documentado publicamente, valide uma vez por sessão.
 
 ## Conteúdo
 
