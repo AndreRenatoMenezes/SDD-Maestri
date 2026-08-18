@@ -107,14 +107,14 @@ Os codinomes acima são exemplos. A regra é que sejam curtos, de uma palavra, s
 
 ## 🚀 Recrutamento
 
-Na sessão do Claude Code, dois comandos:
+Cole na sessão do Claude Code:
 
 ```
 /plugin marketplace add AndreRenatoMenezes/SDD-Maestri
 /plugin install sdd-maestri@sdd-maestri
 ```
 
-Confirme com `/skills` — `sdd-maestri` deve aparecer na lista. Para atualizar depois: `/plugin marketplace update sdd-maestri`.
+É isso. `/skills` confirma que entrou, `/plugin marketplace update sdd-maestri` atualiza depois.
 
 <details>
 <summary><b>Instalação manual, sem plugin</b></summary>
