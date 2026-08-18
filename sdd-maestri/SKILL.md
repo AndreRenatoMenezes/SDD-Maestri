@@ -70,7 +70,7 @@ Disco é a fonte da verdade; nota do canvas é espelho e caixa de entrada. Contr
 2. **Descobrir** — no máximo 3 perguntas, uma por vez, recap de uma linha. `references/descoberta.md`.
 3. **Contratar** — `spec.md` e `plan.md`. Pronto quando todo executor deriva um "pronto" binário sem inventar produto.
 4. **Particionar** — WPs com paths que possui, fora de escopo, aceite, evidência. Dependência real vira onda.
-5. **Recrutar** — presets descobertos, Git Master primeiro. `references/recrutamento.md`.
+5. **Recrutar** — presets descobertos, sugestão de agente/modelo por papel confirmada em uma pergunta por onda, Git Master primeiro. `references/recrutamento.md`.
 6. **Delegar** — objetivo, contexto mínimo, fronteira, formato de retorno. Varrer `bloqueios.md` a cada ciclo.
 7. **Integrar** — evidência contra aceite, lanes atualizadas, painel republicado, relatório ao usuário.
 

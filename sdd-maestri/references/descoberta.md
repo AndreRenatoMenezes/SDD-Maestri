@@ -57,8 +57,10 @@ Nenhuma instalada: use as três rodadas acima.
 | biblioteca já usada no projeto | troca de stack, banco, provedor ou serviço pago |
 | formato de log, convenção de teste | regra de negócio faltando |
 | como particionar em ondas | segurança, credencial, dado pessoal, privacidade, regulatório |
-| codinome e preset de cada executor | migração destrutiva ou mudança de schema em produção |
+| codinome de cada executor | migração destrutiva ou mudança de schema em produção |
 | layout do painel | trade-off real de prazo, custo ou qualidade |
 | | abrir PR, mergear, deployar, publicar, comunicar externamente |
 
 Regra geral: **custo de reverter**. Barato de reverter é seu. Caro de reverter é do usuário.
+
+Exceção que não é nem "decide" nem "pergunta" pura: **agente e modelo (preset) de cada executor**. Sempre sugira com motivo e confirme numa pergunta por onda — nunca decida em silêncio nem interrogue um preset por vez. Função completa em `references/recrutamento.md`.

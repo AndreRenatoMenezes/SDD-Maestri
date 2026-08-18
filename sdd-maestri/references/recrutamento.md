@@ -37,14 +37,37 @@ maestri connect "Bruma" "tasks-Bruma"
 
 ## Seleção por impacto de falha
 
+Cada preset do workspace é uma combinação de agente (Claude Code, Codex, Gemini CLI, OpenCode, Antigravity, ou o que o usuário tiver configurado) e modelo. `preset list` só devolve o **nome** do preset — não confie no nome para adivinhar o que está por trás; se não for autoexplicativo, pergunte (ver função abaixo) em vez de supor.
+
 | Tipo de trabalho | Preset |
 |---|---|
 | fundação, segurança, modelo de dados, regra de negócio, contrato entre camadas, mudança de raio grande | o mais capaz disponível |
 | trabalho mecânico e delimitado | um mais rápido |
 | git, commit, PR | o mais barato |
-| revisão de trabalho crítico | capaz — e **diferente** do preset que implementou |
+| revisão de trabalho crítico | capaz — e **diferente** do preset (e, se possível, do agente) que implementou |
 
 Quando um resultado errado causaria retrabalho do time inteiro, prefira confiabilidade a velocidade.
+
+## Função: sugerir agente e modelo por papel
+
+Rode antes de todo `maestri recruit` que ainda não tem preset decidido — não recrute "no escuro" nem hardcode um preset porque foi o que funcionou da última vez.
+
+**Entrada:** a lista de papéis a recrutar nesta onda (ex.: Engineer-Bruma, Engineer-Serra, Reviewer-Farol) e a saída de `maestri preset list`.
+
+**Passos:**
+
+1. Para cada papel da onda, cruze o tipo de trabalho (tabela acima) com os presets disponíveis e monte **uma sugestão** — um preset, uma frase de motivo. Se dois presets parecerem equivalentes para o mesmo papel, prefira o que já está em uso por outro executor da mesma onda (menos variável para o usuário acompanhar).
+2. Se o nome do preset não deixa claro qual agente e qual modelo ele roda, **não adivinhe**: pergunte ao usuário o que o preset representa antes de sugeri-lo para um papel de alto impacto (fundação, segurança, revisão).
+3. Apresente a sugestão **uma vez por onda**, nunca um agente por vez — interrogatório por recruta cansa o usuário tanto quanto descoberta demais:
+
+   > "Onda 1 — sugiro: Bruma (Engineer, `<preset>`) e Serra (Engineer, `<preset>`) no mais capaz por mexerem em auth/schema; Farol (Reviewer) num preset diferente do deles. Confirma ou troca algum?"
+
+4. **Resposta do usuário:**
+   - Confirma ou não responde nada de específico (ex. "pode seguir", "você escolhe") → segue a sugestão, registra em `decisoes.md` (papel, preset, motivo) e recruta.
+   - Troca um ou mais → usa a escolha do usuário, registra em `equipe.md` sem reabrir pergunta para os que ele não tocou.
+5. Feature pequena, uma WP, um executor: pule a função e decida direto — registrando em `decisoes.md` — como já previsto em `references/descoberta.md`. A função existe para o momento em que a escolha de agente/modelo tem custo real de retrabalho, não para toda recrutada trivial.
+
+Presets já validados nesta sessão (mesmo papel, mesmo tipo de trabalho, onda seguinte da mesma feature) não pedem confirmação de novo — reaproveite sem perguntar.
 
 ## Codinomes
 

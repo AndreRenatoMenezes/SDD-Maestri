@@ -151,6 +151,7 @@ Pedido estourou o timeout: **não reenvie.** Use `maestri check "Nome do Agente"
 - [ ] Todo path ativo tem exatamente um dono.
 - [ ] Todo executor recebeu as cinco referências nomeadas.
 - [ ] Recrutamento usou preset descoberto, sem bypass de permissão.
+- [ ] Agente/modelo por papel foi sugerido com motivo e confirmado numa pergunta por onda — não decidido em silêncio nem interrogado um a um.
 - [ ] Git Master é dono de todo trabalho de git e GitHub.
 - [ ] Nenhum implementador mexeu em git.
 - [ ] Toda execução e validação foi delegada.
