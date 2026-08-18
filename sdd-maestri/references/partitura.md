@@ -6,7 +6,7 @@ Por serem texto, **versionam no git**. É infraestrutura como código para time 
 
 ## O que virar partitura
 
-Depois que um time SDD funcionou bem, salve o arranjo: Maestro + N Engineers + Reviewer + Git Master, com as notas (`bloqueios`, `decisoes`, specs de executor, painel) já conectadas e posicionadas.
+Depois que um time SDD funcionou bem, salve o arranjo: Maestro + Arquiteto + N Engineers + Reviewer + Git Master, com as notas (`bloqueios`, `decisoes`, specs de executor, painel) já conectadas e posicionadas.
 
 Isso mata o custo de montagem toda vez que uma feature nova começa. O que muda entre features é o conteúdo das specs — não a topologia do time.
 
@@ -14,10 +14,10 @@ Isso mata o custo de montagem toda vez que uma feature nova começa. O que muda 
 
 | Partitura | Composição | Quando |
 |---|---|---|
-| `sdd-solo` | Maestro + 1 Engineer + Git Master | feature pequena, uma fronteira só |
-| `sdd-padrao` | Maestro + 2–3 Engineers + Reviewer + Git Master | o caso comum |
-| `sdd-fundacao` | Maestro + Engineer capaz + Reviewer capaz + Git Master | schema, auth, contrato entre camadas |
-| `sdd-correcao` | Maestro + 1 Engineer + Reviewer | onda de correção depois de gate reprovado |
+| `sdd-solo` | Maestro + 1 Engineer + Git Master | feature pequena, uma fronteira só — Maestro acumula o contrato |
+| `sdd-padrao` | Maestro + Arquiteto + 2–3 Engineers + Reviewer + Git Master | o caso comum |
+| `sdd-fundacao` | Maestro + Arquiteto + Engineer capaz + Reviewer capaz + Git Master | schema, auth, contrato entre camadas |
+| `sdd-correcao` | Maestro + 1 Engineer + Reviewer | onda de correção depois de gate reprovado — contrato já existe |
 
 Nomes são sugestão. O que importa é ter poucos arranjos conhecidos em vez de improvisar a topologia a cada feature.
 

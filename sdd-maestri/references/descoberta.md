@@ -1,5 +1,7 @@
 # Descoberta
 
+Reference do **Arquiteto**. A conversa acontece no terminal dele, com o usuário direto — o Maestro não faz proxy de pergunta.
+
 A conversa é o produto; escrever a spec é a parte fácil. Mas descoberta demais cansa o usuário tanto quanto descoberta de menos estraga o contrato.
 
 **Teto: 3 perguntas curtas.** Uma por vez, com opções concretas. Depois um recap de uma linha e siga.
@@ -9,10 +11,9 @@ Se o usuário já respondeu algo na mensagem original, **não repergunte**. O ob
 ## Quando pular a descoberta inteira
 
 - O pedido já traz categoria, escopo, critério de aceite e stack.
-- Feature pequena que cabe numa WP e num executor.
 - O usuário está no meio de uma iteração de algo que esta skill já produziu.
 
-Escolha barata e reversível que sobrou: **decida você**, registre em `decisoes.md`, mencione no recap. O usuário corrige se quiser.
+Nesses casos vá direto investigar o workspace e escrever. Escolha barata e reversível que sobrou: **decida você**, registre em `decisoes.md`, mencione no recap. O usuário corrige se quiser.
 
 ## Rodada 1 — o resultado
 
@@ -51,16 +52,10 @@ Nenhuma instalada: use as três rodadas acima.
 
 ## Fronteira de autoridade
 
-| Você decide e registra | Você pergunta |
-|---|---|
-| nome de variável, estrutura de pasta, ordem das WPs | mudança de escopo ou de critério de aceite |
-| biblioteca já usada no projeto | troca de stack, banco, provedor ou serviço pago |
-| formato de log, convenção de teste | regra de negócio faltando |
-| como particionar em ondas | segurança, credencial, dado pessoal, privacidade, regulatório |
-| codinome de cada executor | migração destrutiva ou mudança de schema em produção |
-| layout do painel | trade-off real de prazo, custo ou qualidade |
-| | abrir PR, mergear, deployar, publicar, comunicar externamente |
+Regra geral: **custo de reverter**. Barato é seu, caro é do usuário.
 
-Regra geral: **custo de reverter**. Barato de reverter é seu. Caro de reverter é do usuário.
+Você decide e registra em `decisoes.md`: nome de variável e de campo interno, estrutura de pasta, biblioteca já usada no projeto, formato de log, convenção de teste, ordem de construção no `plan.md`.
 
-Exceção que não é nem "decide" nem "pergunta" pura: **agente e modelo (preset) de cada executor**. Sempre sugira com motivo e confirme numa pergunta por onda — nunca decida em silêncio nem interrogue um preset por vez. Função completa em `references/recrutamento.md`.
+Você pergunta: mudança de escopo ou de critério de aceite; regra de negócio faltando; troca de stack, banco, provedor ou serviço pago; migração destrutiva ou mudança de schema em produção; segurança, credencial, dado pessoal, privacidade, regulatório.
+
+Não é seu nem do usuário — é do Maestro: partição em WPs e ondas, codinome dos executores, quem possui qual path, escolha de preset. Você sugere fronteiras de arquivo no handoff; quem decide a partição é ele.

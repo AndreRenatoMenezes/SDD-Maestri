@@ -43,14 +43,7 @@ Nunca improvise comportamento de produto. Nunca "escolha o mais provável" em re
 
 Você não faz gestão de git. Nada de `add`, `commit`, `push`, branch, remote, PR, merge, tag ou release.
 
-Trabalho pronto vai por handoff ao `<nome exato do git-master>` contendo:
-
-- paths alterados;
-- comandos executados e saída relevante;
-- evidência de validação;
-- riscos conhecidos;
-- artefatos gerados;
-- qualquer alteração não relacionada que você observou.
+Trabalho pronto vai por handoff ao `<nome exato do git-master>`, com o mesmo conteúdo do relatório de conclusão mais os artefatos gerados e qualquer alteração não relacionada que você observou.
 
 ## Relatório de conclusão
 

@@ -1,47 +1,32 @@
 # Painel no canvas
 
-O `tasks.md` é a fonte da verdade das lanes. O painel é a **leitura** dele — o que dá ao humano a visão panorâmica que justifica o canvas.
+O `tasks.md` é a fonte da verdade das lanes; o painel é a **leitura** dele. Quem gera é o Maestro — é documento de orquestração, não delegue.
 
-Gere depois de fechar o contrato e republique a cada mudança de lane ou de onda. Nunca edite o painel à mão: ele é derivado, não é estado.
+Gere depois de fechar o contrato e republique a cada mudança de lane ou de onda. Nunca edite à mão: ele é derivado por inteiro a cada regeneração, não é estado.
 
-## Nota, não HTML
+## Comandos
 
-O painel é uma **nota markdown no canvas**, criada e mantida com `maestri note`. Nada de arquivo HTML nem portal: markdown é mais barato de gerar, mais barato de reler e edita in-place sem reabrir nada no navegador.
-
-O painel é **derivado por inteiro** a cada regeneração — não é uma nota que cresce por acréscimo como `bloqueios.md`/`decisoes.md`. Por isso ele sempre usa `write` (substituição total), nunca `edit` (troca de trecho): `write` é o comando certo quando o conteúdo novo já é a versão final, não um patch sobre o texto anterior.
-
-Nome fixo por feature, para sempre achar a mesma nota:
-
-```
-painel-<NNN-slug>
-```
-
-Primeira publicação — `note create` com `--name` fixa o nome, senão ele seguiria a primeira linha do conteúdo:
+Nota markdown, nome fixo `painel-<NNN-slug>`. Nada de HTML nem portal.
 
 ```bash
-maestri note create "$(cat painel.md)" --name "painel-001-login"
+maestri note create "$(cat painel.md)" --name "painel-001-login"   # só na primeira publicação
+maestri note write "painel-001-login" "$(cat painel.md)"           # a cada atualização
 ```
 
-Nas atualizações seguintes, **reescreva a mesma nota** com `note write` — nunca rode `note create` de novo para a mesma feature, senão vira uma nota duplicada solta no canvas:
-
-```bash
-maestri note write "painel-001-login" "$(cat painel.md)"
-```
+`--name` fixa o nome, que senão seguiria a primeira linha do conteúdo. Sempre `write` (substituição total), nunca `edit` — o conteúdo novo já é a versão final, não um patch. Nunca rode `create` duas vezes para a mesma feature: vira nota duplicada solta no canvas.
 
 ## Conteúdo
 
 Ordem importa — o humano abre a nota para responder "onde estamos?" em três segundos.
 
-1. **Resumo** — feature e domínio; WPs por lane (`3 planejado · 1 fazendo · 1 revisão · 4 pronto`); onda atual; bloqueios abertos. Uma linha.
-2. **Kanban das WPs** — quatro seções (`## Planejado`, `## Fazendo`, `## Revisão`, `## Pronto`), uma linha por WP: ID, título, codinome do dono, paths que possui, critério de aceite. WP devolvida pelo Reviewer ganha `⚠` e o motivo na mesma linha.
-3. **Mapa de propriedade** — tabela markdown `path → dono`. É o que deixa colisão óbvia antes de virar conflito.
-4. **Ondas** — lista ordenada, uma onda por item, com as WPs que a compõem e a dependência que a bloqueou até abrir. Sem diagrama: em texto, a ordem já basta para responder "o que está serializado".
-5. **Critérios de aceite em aberto** — checklist da spec (`- [x]` / `- [ ]`), com o que já tem evidência marcado.
+1. **Resumo** — uma linha: feature, WPs por lane, onda atual, bloqueios abertos.
+2. **Kanban das WPs** — quatro seções (Fazendo, Revisão, Planejado, Pronto), uma linha por WP: ID, título, dono, paths que possui, critério de aceite. WP devolvida pelo Reviewer ganha `⚠` e o motivo na mesma linha.
+3. **Propriedade** — tabela `path → dono`. É o que deixa colisão óbvia antes de virar conflito.
+4. **Ondas** — lista ordenada, com as WPs de cada uma e a dependência que a bloqueou. Sem diagrama.
+5. **Aceite** — checklist da spec, marcado no que já tem evidência.
 6. **Bloqueios** — um por linha: data, agente, uma frase, dono da decisão.
 
-Conteúdo real, sempre. Nada de dado de exemplo num painel de estado — painel com número inventado é pior que painel nenhum.
-
-## Formato
+Conteúdo real, sempre. Painel com número inventado é pior que painel nenhum.
 
 ```markdown
 # Painel — 001 Login
@@ -79,7 +64,3 @@ Conteúdo real, sempre. Nada de dado de exemplo num painel de estado — painel 
 ## Bloqueios
 - 2026-08-15 — Aster — schema não define unicidade de email — dono: usuário
 ```
-
-## Quem gera
-
-O Maestro. É documento de orquestração, não código de produto — não delegue e não deixe executor mexer.
