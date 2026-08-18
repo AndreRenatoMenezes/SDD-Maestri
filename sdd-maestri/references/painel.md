@@ -34,23 +34,23 @@ Conteúdo real, sempre. Painel com número inventado é pior que painel nenhum.
 **Resumo:** 3 planejado · 1 fazendo · 1 revisão · 4 pronto · onda 2 · 1 bloqueio aberto
 
 ## Fazendo
-- WP-03 — sessão | Bruma | `src/auth/**`, `src/lib/session.ts` | aceite: login mantém sessão por 7 dias
+- WP-03 — sessão | Rey | `src/auth/**`, `src/lib/session.ts` | aceite: login mantém sessão por 7 dias
 
 ## Revisão
-- WP-02 — schema de usuário ⚠ devolvida: falta índice único em email | Aster | `migrations/**`
+- WP-02 — schema de usuário ⚠ devolvida: falta índice único em email | Hera | `migrations/**`
 
 ## Planejado
-- WP-04 — UI de login | Cedro | `src/ui/login/**`
+- WP-04 — UI de login | Ezra | `src/ui/login/**`
 
 ## Pronto
-- WP-01 — rotas base | Bruma | `src/auth/routes.ts`
+- WP-01 — rotas base | Rey | `src/auth/routes.ts`
 
 ## Propriedade
 | Path | Dono |
 |---|---|
-| `src/auth/**` | Bruma |
-| `migrations/**` | Aster |
-| `src/ui/login/**` | Cedro |
+| `src/auth/**` | Rey |
+| `migrations/**` | Hera |
+| `src/ui/login/**` | Ezra |
 
 ## Ondas
 1. WP-01, WP-02 — sem dependência
@@ -62,5 +62,5 @@ Conteúdo real, sempre. Painel com número inventado é pior que painel nenhum.
 - [ ] sessão expira em 7 dias
 
 ## Bloqueios
-- 2026-08-15 — Aster — schema não define unicidade de email — dono: usuário
+- 2026-08-15 — Hera — schema não define unicidade de email — dono: usuário
 ```

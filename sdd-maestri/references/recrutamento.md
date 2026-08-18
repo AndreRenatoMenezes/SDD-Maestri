@@ -17,10 +17,10 @@ Role existente quase certo? **Atualize ou reatribua** em vez de recrutar duplica
 ## Comandos
 
 ```bash
-maestri role create "Engineer-Bruma" "$(cat agents/engineer.md)"   # preencha os <...> antes
-maestri recruit "Bruma" --preset "<preset>" --role "Engineer-Bruma"  # já vem conectado a você
-maestri connect "Bruma" "spec-Bruma"    # connect casa por nome exato, como maestri list imprime
-maestri connect "Bruma" "tasks-Bruma"
+maestri role create "Engineer-Rey" "$(cat agents/engineer.md)"   # preencha os <...> antes
+maestri recruit "Rey" --preset "<preset>" --role "Engineer-Rey"  # já vem conectado a você
+maestri connect "Rey" "spec-Rey"    # connect casa por nome exato, como maestri list imprime
+maestri connect "Rey" "tasks-Rey"
 ```
 
 ## Escolher o preset
@@ -41,7 +41,7 @@ Quando um resultado errado causaria retrabalho do time inteiro, prefira confiabi
 
 Apresente **uma vez por onda**, nunca um agente por vez:
 
-> "Onda 1 — sugiro: Bruma (Engineer, `<preset>`) e Serra (Engineer, `<preset>`) no mais capaz por mexerem em auth/schema; Farol (Reviewer) num preset diferente do deles. Confirma ou troca algum?"
+> "Onda 1 — sugiro: Rey (Engineer, `<preset>`) e Finn (Engineer, `<preset>`) no mais capaz por mexerem em auth/schema; Ahsoka (Reviewer) num preset diferente do deles. Confirma ou troca algum?"
 
 - Confirmou ou respondeu genérico ("pode seguir", "você escolhe") → siga a sugestão, registre em `decisoes.md`, recrute.
 - Trocou algum → use a escolha dele, registre em `equipe.md`, sem reabrir pergunta para os que não tocou.
@@ -52,15 +52,20 @@ Pule a pergunta e decida direto (registrando em `decisoes.md`) em feature de uma
 
 Curtos e distintivos. **O role descreve o trabalho; o codinome dá identidade.** Nada de "Engineer 1", "Engineer 2" — vira confusão de handoff. Use nomes que você digite rápido em `maestri ask` e `maestri check`.
 
+Uma palavra, sem hífen e sem acento. `connect`, `ask`, `check` e `--replace` casam por nome exato: codinome que se escreve de duas maneiras é bug esperando acontecer.
+
+Puxar todos os codinomes de **um mesmo universo** ajuda o humano a lembrar quem é quem no canvas — os exemplos aqui usam Star Wars. Escolha o tema que quiser; o que não pode é o nome sugerir hierarquia ou comportamento que o role não dá. Ninguém se chama "Aprendiz" trabalhando com autonomia total.
+
 Registre em `.claude/specs/equipe.md`, junto com os nomes exatos das notas conectadas:
 
 ```md
 | Codinome | Papel | Preset | Possui | Andar |
 |---|---|---|---|---|
-| Bruma | Engineer | <preset> | src/auth/** | 001-login |
-| Serra | Engineer | <preset> | src/ui/** | 001-login |
-| Farol | Reviewer | <preset> | — | 001-login |
-| Âncora | Git Master | <preset barato> | .git | workspace |
+| Leia | Arquiteto | <preset capaz> | spec.md, plan.md | 001-login |
+| Rey | Engineer | <preset> | src/auth/** | 001-login |
+| Finn | Engineer | <preset> | src/ui/** | 001-login |
+| Ahsoka | Reviewer | <preset> | — | 001-login |
+| Chewie | Git Master | <preset barato> | .git | workspace |
 ```
 
 ## Ordem de montagem
@@ -100,8 +105,8 @@ Delegação em lote só para alvos genuinamente independentes. **Case resultado 
 ## Substituir e dispensar
 
 ```bash
-maestri recruit "Bruma" --preset "<preset novo>" --replace "Bruma"  # troca o programa do agente
-maestri role assign "Bruma" "Engineer-Bruma-v2"                     # troca só o papel
+maestri recruit "Rey" --preset "<preset novo>" --replace "Rey"  # troca o programa do agente
+maestri role assign "Rey" "Engineer-Rey-v2"                     # troca só o papel
 ```
 
 `--replace` mantém conexões, posição e rotinas — é sempre melhor que dispensar e recrutar de novo — mas **reinicia o processo e perde o histórico de conversa**, por definição do comando. `role assign` não tem esse comportamento documentado: trate como incerto. Nos dois casos, preserve o contexto nas notas antes e mande briefing novo depois.

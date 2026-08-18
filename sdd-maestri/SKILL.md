@@ -7,6 +7,8 @@ description: Orquestra times de agentes no Maestri com spec em markdown como con
 
 # SDD no Maestri
 
+> *"Faça, ou não faça. Tentativa não há."* — serve de lema: aceite é binário, e gate reprovado não é entrega parcial.
+
 **A spec é o contrato. O Arquiteto escreve o contrato, o Maestro rege a execução, e nenhum dos dois implementa.**
 
 Código e spec divergem: a spec ganha, o código é o bug. Executor precisou inventar comportamento de produto: o contrato está incompleto — falha do Arquiteto, não dele. Agente falhou? Diagnostique, refine contrato ou role, reatribua. Você nunca vira o implementador reserva.
