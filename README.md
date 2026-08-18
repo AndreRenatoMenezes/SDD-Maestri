@@ -234,6 +234,17 @@ Issues e PRs são bem-vindos. Antes de abrir um PR:
 - Mantenha a skill **model-agnostic**. Nada de provedor, modelo ou flag de bypass de permissão hardcoded.
 - Regra nova precisa vir com o caso real que a motivou.
 
+<details>
+<summary><b>Processo de release</b></summary>
+
+<br/>
+
+1. Bumpe `version` em `.claude-plugin/plugin.json`.
+2. Tag `vX.Y.Z` e release com notas que digam **o que mudou na autoridade ou nas regras de cada papel** — os moldes de `agents/` são copiados para dentro de cada recruta, então mudança de comportamento precisa estar visível.
+3. O workflow `release-check` reprova a tag se o manifesto não tiver sido bumpado. Sem esse campo atualizado, ninguém recebe a atualização.
+
+</details>
+
 ## 📄 Licença
 
 [MIT](LICENSE) © 2026 Andre Renato Menezes
