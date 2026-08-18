@@ -14,6 +14,27 @@ Inspecione a árvore de time aninhada e as conexões existentes antes de conecta
 
 Role existente quase certo? **Atualize ou reatribua** em vez de recrutar duplicata.
 
+## Comandos
+
+Criar o role a partir do arquivo em `agents/<papel>.md` (preencha `<...>` antes):
+
+```bash
+maestri role create "Engineer-Bruma" "$(cat agents/engineer.md)"
+```
+
+Recrutar já com preset e role certos — vem automaticamente conectado a você:
+
+```bash
+maestri recruit "Bruma" --preset "<preset>" --role "Engineer-Bruma"
+```
+
+Conectar as notas de contrato (`spec-<codinome>`, `tasks-<codinome>`) ao recruta — `connect` casa por nome exato, do jeito que `maestri list` imprime:
+
+```bash
+maestri connect "Bruma" "spec-Bruma"
+maestri connect "Bruma" "tasks-Bruma"
+```
+
 ## Seleção por impacto de falha
 
 | Tipo de trabalho | Preset |
@@ -93,6 +114,24 @@ Resultado longo: instrua o executor a responder com `maestri ask` endereçado a 
 
 ## Substituir agente
 
-Trocar o programa do agente = substituir o recruta no lugar. Trocar o papel = atribuir o novo role. **As duas operações reiniciam o processo e perdem o histórico de conversa** — preserve o contexto nas notas antes e mande briefing novo depois.
+Trocar o programa do agente:
+
+```bash
+maestri recruit "Bruma" --preset "<preset novo>" --replace "Bruma"
+```
+
+`--replace` mantém conexões, posição e rotinas no lugar — é sempre melhor que dispensar e recrutar de novo.
+
+Trocar só o papel, mantendo o mesmo agente:
+
+```bash
+maestri role assign "Bruma" "Engineer-Bruma-v2"
+```
+
+`--replace` **reinicia o processo e perde o histórico de conversa**, por definição do próprio comando. `role assign` não tem esse comportamento documentado — trate como incerto e preserve o contexto nas notas antes de qualquer uma das duas, mandando briefing novo depois.
+
+## Fim de ciclo
+
+`maestri dismiss "Nome"` para terminal e remove o nó — é remoção de terminal, então cai na regra 3 (nada destrutivo sem autorização explícita do usuário). Não dispense executor por conta própria só porque a WP fechou; pergunte, ou deixe conectado até o pouso do andar.
 
 Nunca delete nota, portal, rotina, role ou terminal para limpeza. Canvas é estado do usuário.
