@@ -4,7 +4,6 @@
 
 <br/>
 
-*Papéis com fronteiras que não se cruzam, e um painel que responde "onde estamos?" em três segundos.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-6D57FF.svg?style=flat-square)](https://docs.claude.com/en/docs/claude-code/skills)
@@ -219,8 +218,6 @@ Issues e PRs são bem-vindos. Antes de abrir um PR:
 ## 📄 Licença
 
 [MIT](LICENSE) © 2026 Andre Renato Menezes
-
-As ilustrações em `assets/` — banner e ícones de papel — são **arte original** deste projeto, cobertas pela mesma licença. Star Wars é marca registrada da Lucasfilm Ltd.; as referências aqui são homenagem, sem afiliação ou endosso.
 
 <div align="center">
 <br/>
