@@ -1,11 +1,10 @@
 <div align="center">
 
-# ⭐ SDD Maestri
+<img src="assets/banner.svg" alt="SDD Maestri — Spec-Driven Development para times de agentes de IA" width="100%">
 
-### Spec-Driven Development para times de agentes de IA
+<br/>
 
-*Um contrato antes da primeira linha de código. Papéis com fronteiras que não se cruzam.*<br/>
-*E um painel que responde "onde estamos?" em três segundos.*
+*Papéis com fronteiras que não se cruzam, e um painel que responde "onde estamos?" em três segundos.*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-6D57FF.svg?style=flat-square)](https://docs.claude.com/en/docs/claude-code/skills)
@@ -87,11 +86,11 @@ O **Arquiteto** conversa com você, investiga o repositório e escreve o contrat
 
 | | Papel | Faz | Preset sugerido |
 |:--:|:--|:--|:--|
-| 🎼 | **Maestro** | Partição em WPs, recrutamento, delegação, integração, painel, relatório | equilibrado |
-| 📐 | **Arquiteto** | Descoberta com você, `spec.md` e `plan.md`, emenda de contrato | o mais capaz |
-| 🔧 | **Engineer** (1–N) | Implementa WPs nos paths que possui | conforme o raio da mudança |
-| 🛡️ | **Reviewer** | Valida a WP contra o aceite, por `git diff` e evidência | capaz, e **diferente** do Engineer |
-| 📦 | **Git Master** | Branch, commit, push, PR — dono único do git | o mais barato |
+| <img src="assets/icons/maestro.svg" width="34"> | **Maestro** | Partição em WPs, recrutamento, delegação, integração, painel, relatório | equilibrado |
+| <img src="assets/icons/arquiteto.svg" width="34"> | **Arquiteto** | Descoberta com você, `spec.md` e `plan.md`, emenda de contrato | o mais capaz |
+| <img src="assets/icons/engineer.svg" width="34"> | **Engineer** (1–N) | Implementa WPs nos paths que possui | conforme o raio da mudança |
+| <img src="assets/icons/reviewer.svg" width="34"> | **Reviewer** | Valida a WP contra o aceite, por `git diff` e evidência | capaz, e **diferente** do Engineer |
+| <img src="assets/icons/git-master.svg" width="34"> | **Git Master** | Branch, commit, push, PR — dono único do git | o mais barato |
 
 > 🪐 **Model-agnostic por design.** Presets são descobertos em runtime via `maestri preset list` — a skill nunca fixa provedor ou modelo. Funciona com Claude Code, Codex, Gemini CLI, OpenCode ou o que você tiver configurado. *Muitos agentes, uma só Força.*
 
@@ -220,6 +219,8 @@ Issues e PRs são bem-vindos. Antes de abrir um PR:
 ## 📄 Licença
 
 [MIT](LICENSE) © 2026 Andre Renato Menezes
+
+As ilustrações em `assets/` — banner e ícones de papel — são **arte original** deste projeto, cobertas pela mesma licença. Star Wars é marca registrada da Lucasfilm Ltd.; as referências aqui são homenagem, sem afiliação ou endosso.
 
 <div align="center">
 <br/>

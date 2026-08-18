@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Reviewer">
+  <circle cx="32" cy="32" r="30" fill="#bf8700"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="2"/>
+  <!-- escudo -->
+  <path d="M32 14l15 6v12.5c0 9.4-6.3 15.8-15 18.5-8.7-2.7-15-9.1-15-18.5V20l15-6z" fill="#ffffff"/>
+  <path d="M24.6 32.6l5.2 5.2 10.4-10.6" fill="none" stroke="#bf8700" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
