@@ -107,24 +107,38 @@ Os codinomes acima são exemplos. A regra é que sejam curtos, de uma palavra, s
 
 ## 🚀 Recrutamento
 
+Na sessão do Claude Code, dois comandos:
+
+```
+/plugin marketplace add AndreRenatoMenezes/SDD-Maestri
+/plugin install sdd-maestri@sdd-maestri
+```
+
+Confirme com `/skills` — `sdd-maestri` deve aparecer na lista. Para atualizar depois: `/plugin marketplace update sdd-maestri`.
+
+<details>
+<summary><b>Instalação manual, sem plugin</b></summary>
+
+<br/>
+
 ```bash
-git clone https://github.com/AndreRenatoMenezes/Spec-Driven-Dev-Maestri.git
-cd Spec-Driven-Dev-Maestri
+git clone https://github.com/AndreRenatoMenezes/SDD-Maestri.git
+cd SDD-Maestri
 
 # disponível em todos os projetos
-cp -r sdd-maestri ~/.claude/skills/
+cp -r skills/sdd-maestri ~/.claude/skills/
 
 # ou apenas neste projeto
-cp -r sdd-maestri .claude/skills/
+cp -r skills/sdd-maestri .claude/skills/
 ```
 
 Para acompanhar as atualizações do repositório, use um symlink no lugar da cópia:
 
 ```bash
-ln -s "$(pwd)/sdd-maestri" ~/.claude/skills/sdd-maestri
+ln -s "$(pwd)/skills/sdd-maestri" ~/.claude/skills/sdd-maestri
 ```
 
-Confirme com `/skills` na sessão do Claude Code — `sdd-maestri` deve aparecer na lista.
+</details>
 
 <details>
 <summary><b>Requisitos</b></summary>
@@ -189,7 +203,10 @@ Coordenar cinco agentes custa mais do que fazer. A skill só se paga quando a fe
 ## 🗂️ Estrutura do repositório
 
 ```
-sdd-maestri/
+.claude-plugin/           # manifestos: o repo é plugin e marketplace ao mesmo tempo
+├── plugin.json
+└── marketplace.json
+skills/sdd-maestri/
 ├── SKILL.md              # ponto de entrada: princípio, papéis, ciclo, regras
 ├── agents/               # moldes de role, copiados para cada recruta
 │   ├── maestro.md        # protocolo completo, autoridade, autochecagem
@@ -203,6 +220,8 @@ sdd-maestri/
     ├── painel.md         # a nota de painel no canvas
     └── partitura.md      # salvar o time como blueprint reaproveitável
 ```
+
+> ⚠️ Os `agents/` acima são **moldes de role em markdown**, lidos pelo Maestro — não são subagentes do Claude Code. Por isso ficam dentro da skill, e não na raiz do plugin.
 
 > ⚡ **Economia de contexto é requisito, não otimização.** Cada token gasto aqui é multiplicado por N agentes: os moldes de `agents/` são copiados para dentro do role de cada recruta, e os `references/` carregam só quando o passo correspondente acontece. Nenhum executor lê a skill inteira — cada um recebe cinco referências nomeadas e nada além.
 

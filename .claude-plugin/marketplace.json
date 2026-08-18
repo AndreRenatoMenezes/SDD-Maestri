@@ -1,0 +1,22 @@
+{
+  "name": "sdd-maestri",
+  "description": "Skills de orquestração spec-driven para times de agentes no Maestri.",
+  "owner": {
+    "name": "Andre Renato Menezes",
+    "url": "https://github.com/AndreRenatoMenezes"
+  },
+  "plugins": [
+    {
+      "name": "sdd-maestri",
+      "source": "./",
+      "description": "Spec-Driven Development para times de agentes de IA no Maestri: papéis com fronteiras que não se cruzam, spec como contrato e um painel auditável no canvas.",
+      "category": "workflow",
+      "tags": [
+        "maestri",
+        "spec-driven-development",
+        "multi-agent",
+        "agent-orchestration"
+      ]
+    }
+  ]
+}
