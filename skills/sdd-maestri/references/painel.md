@@ -1,26 +1,39 @@
-# Painel no canvas
+# Painel e status do andar
 
-O `tasks.md` é a fonte da verdade das lanes; o painel é a **leitura** dele. Quem gera é o Maestro — é documento de orquestração, não delegue.
+O `tasks.md` é a fonte da verdade das lanes. O usuário tem duas leituras dele, as duas suas — é documento de orquestração, não delegue:
 
-Gere depois de fechar o contrato e republique a cada mudança de lane ou de onda. Nunca edite à mão: ele é derivado por inteiro a cada regeneração, não é estado.
+- **Status do andar** — uma linha na sidebar, visível de qualquer lugar. Responde "anda ou travou?".
+- **Painel** — nota no seu andar (o Ground). Responde "onde estamos?" em três segundos.
 
-## Comandos
+Atualize os dois a cada mudança de lane ou de onda. Nunca edite o painel à mão: ele é derivado por inteiro a cada regeneração, não é estado.
 
-Nota markdown, nome fixo `painel-<NNN-slug>`. Nada de HTML nem portal.
+## Status do andar
 
 ```bash
-maestri note create "$(cat painel.md)" --name "painel-001-login"   # só na primeira publicação
-maestri note write "painel-001-login" "$(cat painel.md)"           # a cada atualização
+maestri floor status "WP-03 em revisão · onda 2" --floor "001-login" --progress 4/9
+maestri floor status "Decisão de provedor de e-mail com o usuário" --floor "001-login" --state blocked
+maestri floor status "9/9 prontas, PR pronto para autorizar" --floor "001-login" --state review
 ```
 
-`--name` fixa o nome, que senão seguiria a primeira linha do conteúdo. Sempre `write` (substituição total), nunca `edit` — o conteúdo novo já é a versão final, não um patch. Nunca rode `create` duas vezes para a mesma feature: vira nota duplicada solta no canvas.
+`--floor` é o andar da feature, ou `"Ground"` no modo Ground. Uma linha curta (corta em 120 caracteres). `--progress` é WPs prontas sobre total. `blocked` e `review` notificam o usuário — use só quando forem verdade. Vários andares ativos: um resumo no Ground com `--floor "Ground"`.
+
+## Painel
+
+Nota markdown, nome fixo `painel-<NNN-slug>`, arquivada no fichário `SDD`. Nada de HTML nem portal.
+
+```bash
+maestri note create "<conteúdo>" --name "painel-001-login" --stack "SDD" --color blue   # só na primeira publicação
+maestri note write "painel-001-login" "<conteúdo>"                                         # a cada atualização
+```
+
+`--name` fixa o nome, que senão seguiria a primeira linha. Sempre `write` (substituição total), nunca `edit` — o conteúdo novo já é a versão final. Nunca rode `create` duas vezes para a mesma feature: vira nota duplicada. Não sabe se já existe? `maestri list`. Conteúdo é decodificado: `\n` vira quebra de linha; para manter uma barra invertida literal, dobre-a.
 
 ## Conteúdo
 
-Ordem importa — o humano abre a nota para responder "onde estamos?" em três segundos.
+Ordem importa:
 
 1. **Resumo** — uma linha: feature, WPs por lane, onda atual, bloqueios abertos.
-2. **Kanban das WPs** — quatro seções (Fazendo, Revisão, Planejado, Pronto), uma linha por WP: ID, título, dono, paths que possui, critério de aceite. WP devolvida pelo Reviewer ganha `⚠` e o motivo na mesma linha.
+2. **Kanban das WPs** — quatro seções (Fazendo, Revisão, Planejado, Pronto), uma linha por WP: ID, título, dono, paths que possui, critério de aceite. WP devolvida ganha `⚠` e o motivo na mesma linha.
 3. **Propriedade** — tabela `path → dono`. É o que deixa colisão óbvia antes de virar conflito.
 4. **Ondas** — lista ordenada, com as WPs de cada uma e a dependência que a bloqueou. Sem diagrama.
 5. **Aceite** — checklist da spec, marcado no que já tem evidência.
@@ -43,7 +56,7 @@ Conteúdo real, sempre. Painel com número inventado é pior que painel nenhum.
 - WP-04 — UI de login | Ezra | `src/ui/login/**`
 
 ## Pronto
-- WP-01 — rotas base | Rey | `src/auth/routes.ts`
+- WP-01 — rotas base | Rey | `src/auth/routes.ts` | a1b2c3d
 
 ## Propriedade
 | Path | Dono |

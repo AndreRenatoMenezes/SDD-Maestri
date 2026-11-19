@@ -1,6 +1,6 @@
 # Descoberta
 
-Reference do **Arquiteto**. A conversa acontece no terminal dele, com o usuário direto — o Maestro não faz proxy de pergunta.
+Anexo do role do **Arquiteto** — o Maestro cola este arquivo no fim do role ao criá-lo. A conversa acontece no terminal do Arquiteto, com o usuário direto — o Maestro não faz proxy de pergunta.
 
 A conversa é o produto; escrever a spec é a parte fácil. Mas descoberta demais cansa o usuário tanto quanto descoberta de menos estraga o contrato.
 
@@ -13,7 +13,7 @@ Se o usuário já respondeu algo na mensagem original, **não repergunte**. O ob
 - O pedido já traz categoria, escopo, critério de aceite e stack.
 - O usuário está no meio de uma iteração de algo que esta skill já produziu.
 
-Nesses casos vá direto investigar o workspace e escrever. Escolha barata e reversível que sobrou: **decida você**, registre em `decisoes.md`, mencione no recap. O usuário corrige se quiser.
+Nesses casos vá direto investigar o workspace e escrever. Escolha barata e reversível que sobrou: **decida você**, registre na seção Decisões da spec, mencione no recap. O usuário corrige se quiser.
 
 ## Rodada 1 — o resultado
 
@@ -41,7 +41,7 @@ Uma frase, antes de escrever a spec:
 
 ## Skills de descoberta
 
-Se o workspace tiver instalada alguma skill de descoberta, prefira, nesta ordem:
+Se o seu agente tiver instalada alguma skill de descoberta, prefira, nesta ordem:
 
 1. `wayfinder` — trabalho maior que uma sessão ou com névoa de decisão não resolvida
 2. `grill-me` — ambiguidade consequente, uma pergunta por vez
@@ -54,7 +54,7 @@ Nenhuma instalada: use as três rodadas acima.
 
 Regra geral: **custo de reverter**. Barato é seu, caro é do usuário.
 
-Você decide e registra em `decisoes.md`: nome de variável e de campo interno, estrutura de pasta, biblioteca já usada no projeto, formato de log, convenção de teste, ordem de construção no `plan.md`.
+Você decide e registra em Decisões: nome de variável e de campo interno, estrutura de pasta, biblioteca já usada no projeto, formato de log, convenção de teste, ordem de construção no `plan.md`.
 
 Você pergunta: mudança de escopo ou de critério de aceite; regra de negócio faltando; troca de stack, banco, provedor ou serviço pago; migração destrutiva ou mudança de schema em produção; segurança, credencial, dado pessoal, privacidade, regulatório.
 
