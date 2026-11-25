@@ -19,7 +19,7 @@
 
 ---
 
-**Índice** · [O lado sombrio](#-o-lado-sombrio-da-paralelização) · [Os planos](#-os-planos-da-estrela-da-morte) · [A Ordem](#-a-ordem) · [O Código](#-o-código) · [Instalação](#-recrutamento) · [Primeira missão](#-primeira-missão) · [Quando não usar](#-nem-toda-missão-precisa-de-um-esquadrão) · [Contribuir](#-junte-se-à-resistência)
+**Índice** · [O lado sombrio](#-o-lado-sombrio-da-paralelização) · [Os planos](#-os-planos-da-estrela-da-morte) · [A Ordem](#-a-ordem) · [O Código](#-o-código) · [Instalação](#-recrutamento) · [Primeira missão](#-primeira-missão) · [Ideias](#-caixa-de-ideias) · [Quando não usar](#-nem-toda-missão-precisa-de-um-esquadrão) · [Contribuir](#-junte-se-à-resistência)
 
 ---
 
@@ -200,7 +200,9 @@ O que acontece, em ordem:
 
 ```
 .claude/specs/                       ← no checkout da feature (o seu, ou o do andar)
-├── INBOX.md · ROADMAP.md · schema.md
+├── IDEIAS.md · ROADMAP.md           ← backlog do projeto, sempre no seu checkout
+├── mapeadas/004-exportar-pdf/spec.md ← spec pronta, esperando feature
+├── schema.md
 ├── current/001-login/
 │   ├── spec.md · plan.md            ← do Arquiteto (com a seção Decisões)
 │   ├── tasks.md · tasks-done.md     ← do Maestro: WPs, lanes, donos de path
@@ -213,6 +215,40 @@ O que acontece, em ordem:
 Disco é a fonte da verdade, e cada arquivo tem um dono só. No canvas ficam o painel e o status da feature — notas não cruzam andares, então nenhum executor depende delas. O contrato vai versionado no branch da feature junto com o código que ele governa.
 
 </details>
+
+## 💡 Caixa de ideias
+
+Ideia não espera reunião. Na primeira vez que a skill carrega, ela cria **`.claude/specs/IDEIAS.md`** no seu projeto: uma lista numerada onde você joga a ideia do jeito que vier, para não esquecer. Quando quiser transformar a lista em contrato:
+
+```
+/sdd-maestri:descobrir          # todas as ideias novas
+/sdd-maestri:descobrir 2 5      # só algumas
+```
+
+```mermaid
+flowchart LR
+    I[💡 IDEIAS.md<br/>você anota] -->|/sdd-maestri:descobrir| A[📐 Arquiteto]
+    A -->|1. pesquisa| O[🌐 Já existe<br/>open source?]
+    O --> D[💬 Debate dos<br/>pontos em aberto]
+    D -->|2. escreve| S[📜 spec mapeada<br/>com fluxo de uso]
+    S -->|3. atualiza| R[🛣️ ROADMAP.md<br/>+ status no IDEIAS.md]
+    R -->|"monte um time para a 004"| M[🎼 Maestro<br/>abre a feature]
+```
+
+Para cada ideia, o **Arquiteto**:
+
+1. **Pesquisa na internet** se já existe projeto open source que resolva ou possa ser adaptado — com licença, manutenção e adoção avaliadas — e leva ao debate *adotar, adaptar ou construir*.
+2. **Debate os pontos em aberto** com você: até três, um por vez, cada um com opções e a recomendação dele. O que você não quiser decidir agora fica marcado na spec e trava a execução até ser fechado.
+3. **Escreve uma spec de fácil leitura** — resumo em uma frase, fluxo de uso em diagrama Mermaid, tabelas de fronteira, casos de borda e decisões.
+4. **Atualiza o `IDEIAS.md` e o `ROADMAP.md`**: o que já foi mapeado, o que está no roadmap (na ordem que você confirmar), o que está em execução e o que já foi implementado. O seu texto nunca é reescrito — o status entra depois de um `⟶`.
+
+```
+1. exportar relatório em PDF ⟶ 🛣️ #1 · 004
+2. login com Google ⟶ ✅ 001 · PR #12
+3. modo escuro
+```
+
+Depois, *"monte um time para a 004"* e o Arquiteto parte da spec mapeada em vez de redescobrir. No Maestro o comando recruta o Arquiteto e te passa o terminal dele; em qualquer outro terminal, o próprio agente faz a descoberta.
 
 ## 🌵 Nem toda missão precisa de um esquadrão
 
@@ -227,7 +263,8 @@ Coordenar cinco agentes custa mais do que fazer. A skill só se paga quando a fe
 ├── plugin.json
 └── marketplace.json
 commands/
-└── papeis.md             # /sdd-maestri:papeis — cadastra as seis responsabilidades SDD
+├── papeis.md             # /sdd-maestri:papeis — cadastra as seis responsabilidades SDD
+└── descobrir.md          # /sdd-maestri:descobrir — do IDEIAS.md às specs mapeadas
 skills/sdd-maestri/
 ├── SKILL.md              # ponto de entrada: princípio, papéis, ciclo, regras
 ├── agents/               # moldes de role, cadastrados por scripts/papeis.sh
@@ -237,8 +274,11 @@ skills/sdd-maestri/
 │   ├── engineer.md
 │   ├── reviewer.md
 │   └── git-master.md
+├── modelos/              # IDEIAS.md e ROADMAP.md, copiados para o projeto na primeira vez
 └── references/           # carregados sob demanda
     ├── descoberta.md     # as 3 perguntas — anexado ao role do Arquiteto
+    ├── backlog.md        # descoberta a partir do IDEIAS.md, pesquisa open source, roadmap
+    ├── modelo-spec.md    # esqueleto da spec: resumo, fluxo de uso, tabelas
     ├── recrutamento.md   # roles, presets, contas, codinomes, ondas, delegação
     ├── painel.md         # painel no canvas e status do andar
     ├── supervisao.md     # triagem, permissões, troca por cota, rotinas de vigia

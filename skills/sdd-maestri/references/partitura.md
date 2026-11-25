@@ -64,7 +64,7 @@ Acontece quando **todas as WPs estão em `pronto`** e não há bloqueio aberto:
 
    Resposta que não nomeia uma saída ("pode entregar", "pode pousar", "pode seguir", "ok") não escolhe: pergunte qual. **Merge local exige que o usuário diga merge ou nomeie o branch de destino** — nunca deduza `--into` de uma autorização genérica.
 4. Com a escolha, escreva **agora** a última entrada de `decisoes.md`: a saída escolhida e **as palavras do usuário, copiadas**. Sem essa entrada, o comando da saída não roda. Escreva também o relatório final — depois do arquivamento, você não escreve mais nos arquivos da feature.
-5. Git Master arquiva a feature (`archive/<dominio>/`) e confirma `git status` limpo. Registro que surgiu depois: ele commita antes de seguir.
+5. Avise o Arquiteto da saída escolhida, para ele marcar a spec como ✅ implementada no `ROADMAP.md` e no `IDEIAS.md` do Ground — sem Arquiteto no canvas, a próxima descoberta de backlog reconcilia pelo `archive/`. Git Master arquiva a feature (`archive/<dominio>/`) e confirma `git status` limpo. Registro que surgiu depois: ele commita antes de seguir.
 6. Rode **só a saída escolhida**, exatamente como apresentada — trocar a saída, ou acrescentar `--into` depois de uma recusa do land, exige nova escolha do usuário. PR no modo andar: o Maestri acompanha review, checks e merge no próprio andar. Land: rode do Ground; ele recusa trabalho não commitado e conflito, dizendo os arquivos — devolva ao Git Master e rode de novo o mesmo comando.
 7. Tire a feature da `regencia`. Reserva, `sdd-vigia` e `sdd-sucessao` ficam para a próxima: sem feature em andamento, as rotinas não disparam.
 8. Modo andar, depois do PR mergeado: `floor delete`. Em qualquer caminho, `dismiss` do time — só se o usuário pedir.
