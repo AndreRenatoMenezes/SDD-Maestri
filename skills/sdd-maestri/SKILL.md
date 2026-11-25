@@ -1,6 +1,6 @@
 ---
 name: sdd-maestri
-description: Orquestra um time de agentes no Maestri com spec em markdown como contrato — Arquiteto faz a descoberta e escreve spec/plan, Maestro abre a feature no seu checkout ou num andar isolado, particiona por dono de arquivo, recruta executores e mantém painel e status do andar. Use quando, num terminal Maestro, o usuário pedir para montar um time, orquestrar vários agentes numa feature, ou mencionar SDD/spec-driven com Maestri, partitura de time, recrutar Arquiteto/Engineer/Reviewer ou git-master. Não use para operação avulsa de canvas (nota, portal, rotina, um ask) — isso é das skills maestri-*.
+description: Orquestra um time de agentes no Maestri com spec em markdown como contrato — Arquiteto faz a descoberta e escreve spec/plan, Maestro abre a feature no seu checkout ou num andar isolado, particiona por dono de arquivo, recruta executores e mantém painel e status do andar. Use quando, num terminal Maestro, o usuário pedir para montar um time, orquestrar vários agentes numa feature, ou mencionar SDD/spec-driven com Maestri, partitura de time, recrutar Arquiteto/Engineer/Reviewer ou git-master, ou pedir para transformar as ideias do `IDEIAS.md` em spec. Não use para operação avulsa de canvas (nota, portal, rotina, um ask) — isso é das skills maestri-*.
 ---
 
 > **Você recebeu um role de executor (Arquiteto, Engineer, Reviewer, Git Master)? Pare de ler aqui.** Seu contrato é o seu role mais a mensagem de delegação. Esta skill é do Maestro; ler o resto não te dá permissão nenhuma e gasta contexto que é seu.
@@ -59,7 +59,9 @@ Você fica no Ground nos dois modos. Os arquivos ficam no checkout da feature:
 
 ```
 <checkout da feature>/.claude/specs/
-├── INBOX.md · ROADMAP.md · schema.md       ← do Arquiteto
+├── IDEIAS.md · ROADMAP.md                  ← backlog: sempre no Ground; o texto das ideias é do usuário
+├── mapeadas/NNN-slug/spec.md             ← specs prontas, ainda sem feature
+├── schema.md                             ← do Arquiteto
 ├── current/001-login/
 │   ├── spec.md · plan.md                   ← do Arquiteto
 │   └── tasks.md · tasks-done.md · equipe.md · bloqueios.md · decisoes.md   ← seus
@@ -72,7 +74,7 @@ Uma WP (30–90 min) = uma fronteira de propriedade de arquivos. Entrega = desti
 
 ## O ciclo
 
-1. **Inventariar** — `maestri list`, `floor list`, `partitura list`, `role list`, `preset list`, nota-guia, nota `regencia`. Faltou papel SDD no `role list`: `scripts/papeis.sh`. Sem reserva no workspace: monte → `references/recrutamento.md`
+1. **Inventariar** — `maestri list`, `floor list`, `partitura list`, `role list`, `preset list`, nota-guia, nota `regencia`. Faltou papel SDD no `role list`: `scripts/papeis.sh`. Sem reserva no workspace: monte → `references/recrutamento.md`. Sem `.claude/specs/IDEIAS.md` no Ground: copie `modelos/IDEIAS.md` e `modelos/ROADMAP.md` para lá (só criar — editar é do usuário e do Arquiteto) e diga ao usuário, numa linha, que ali ele anota ideias e `/sdd-maestri:descobrir` as transforma em spec → `references/backlog.md`
 2. **Onde rodar** — Ground ou andar, pela `regencia` ou perguntando (acima). Andar: `floor create`, com `--partitura` se houver uma que sirva → `references/partitura.md`
 3. **Contratar** — recrute o Arquiteto (no andar, se for o modo) e **passe a bola**: diga ao usuário o nome exato do terminal, porque a descoberta acontece lá. Recrute o Git Master enquanto isso. → `agents/arquiteto.md`, `references/descoberta.md`
 4. **Conferir** — o Arquiteto devolve `spec.md`, `plan.md` e as fronteiras de arquivo sugeridas. Aceite binário e fronteira explícita, ou devolve.

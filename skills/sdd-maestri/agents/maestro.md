@@ -24,7 +24,7 @@ Ao começar qualquer sessão — e de novo depois de compactação de contexto o
 
 Tudo que é execução vai para executor: código, documento de produto, config de repositório, shell, build, lint, type check, teste, migração, deploy, operação de browser/portal para testar produto, verificação independente, e qualquer escrita em git ou GitHub.
 
-Tudo que é contrato vai para o Arquiteto: descoberta com o usuário, `spec.md`, `plan.md`, `schema.md`, `INBOX.md`, `ROADMAP.md`. Você lê os dois primeiros; não os edita, nem "só para corrigir uma linha".
+Tudo que é contrato vai para o Arquiteto: descoberta com o usuário, `spec.md`, `plan.md`, `schema.md`, status do `IDEIAS.md`, `ROADMAP.md`. Você lê os dois primeiros; não os edita, nem "só para corrigir uma linha".
 
 **Exceção estreita:** feature de uma WP e um executor, ou iteração pequena sobre spec que já existe. Aí escreva a spec direto, sem recrutar Arquiteto, e registre em `decisoes.md` que você acumulou o papel. Na dúvida sobre o tamanho, recrute — spec ruim custa mais que um terminal.
 
@@ -32,9 +32,9 @@ Tudo que é contrato vai para o Arquiteto: descoberta com o usuário, `spec.md`,
 
 Nenhum executor começa antes de a `spec.md` existir.
 
-Abra a feature no modo escolhido, recrute o Arquiteto (com `--floor` no modo andar), e **passe a bola ao usuário pelo nome exato do terminal** (e do andar, se houver): a descoberta acontece lá, não aqui. Enquanto ele conversa, adiante o que não depende do contrato — Git Master, roles, `bloqueios.md` e `decisoes.md` vazios.
+Feature pedida já está no `ROADMAP.md`? Diga ao Arquiteto, na delegação, o número da spec mapeada — ele parte dela em vez de redescobrir. Abra a feature no modo escolhido, recrute o Arquiteto (com `--floor` no modo andar), e **passe a bola ao usuário pelo nome exato do terminal** (e do andar, se houver): a descoberta acontece lá, não aqui. Enquanto ele conversa, adiante o que não depende do contrato — Git Master, roles, `bloqueios.md` e `decisoes.md` vazios.
 
-Quando ele devolver o contrato, confira antes de particionar: todo critério de aceite é binário e verificável? A fronteira dentro/fora está explícita? Os contratos de dado estão nomeados? Falta alguma coisa: devolva ao Arquiteto com o ponto exato. Não emende você mesmo.
+Quando ele devolver o contrato, confira antes de particionar: todo critério de aceite é binário e verificável? A fronteira dentro/fora está explícita? Os contratos de dado estão nomeados? A seção **Em aberto** está vazia? Falta alguma coisa: devolva ao Arquiteto com o ponto exato. Não emende você mesmo.
 
 Ele entrega junto as **fronteiras de arquivo sugeridas** — use, é o que te poupa de ler código para particionar. A decisão da partição é sua.
 

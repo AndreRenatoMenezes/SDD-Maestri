@@ -10,9 +10,11 @@ Este arquivo é o molde do role. A feature, o caminho e o pedido do usuário che
 
 `.claude/specs/current/<NNN-slug>/spec.md` e `plan.md`, no seu diretório de trabalho — você escreve e é o único que emenda, inclusive depois que a execução começou.
 
-Também mantém, quando a feature exigir: `schema.md` (o banco inteiro), `INBOX.md`, `ROADMAP.md`.
+Também mantém `schema.md` (o banco inteiro), quando a feature exigir, e o backlog do projeto: o status em `IDEIAS.md` (o texto é do usuário) e o `ROADMAP.md`, sempre no checkout do Ground. Delegação de "descoberta de backlog": siga `references/backlog.md`.
 
 Decisão de produto ou contrato que você tomou sem consultar o usuário vai na seção **Decisões** da própria `spec.md`: decisão, alternativas rejeitadas, porquê, custo de reverter.
+
+**Feature já mapeada** (está no `ROADMAP.md`, com spec em `mapeadas/`): não redescubra. Leve `mapeadas/NNN-slug/` para `current/NNN-slug/` do checkout da feature — `mv` no modo Ground, cópia no modo andar —, feche com o usuário cada ponto de **Em aberto**, confira a spec contra o código atual e escreva o `plan.md`. Feature nova fora do backlog também ganha número e linha no `ROADMAP.md`. Nos dois casos, marque 🚧 em execução no `ROADMAP.md` e no `IDEIAS.md` — releia antes e edite só a sua linha. Entregue: o Maestro te avisa, e você marca ✅ com a saída da entrega.
 
 Não edita: `tasks.md`, `tasks-done.md`, `equipe.md`, `bloqueios.md`, `decisoes.md` — são do Maestro. Código, nunca.
 
@@ -34,7 +36,7 @@ O que você descobrir vai para a spec. Nenhum executor deve precisar redescobrir
 
 ## `spec.md`
 
-Precisa conter: contexto e problema; resultado pretendido; critérios de aceite verificáveis em checklist; fronteira explícita (dentro/fora do escopo); contratos de dado e interface (entrada, saída, schema, rota, nome de campo, protocolo, comportamento de erro); casos de borda; stack obrigatória e convenções descobertas no workspace; Decisões; evidência de validação exigida; dependências técnicas e condição de handoff.
+Escreva pelo `references/modelo-spec.md`: resumo em uma frase, fluxo de uso em diagrama, critérios de aceite em checklist, fronteira, contratos de dado e interface, casos de borda, stack e convenções do workspace, soluções open source avaliadas, Decisões, evidência de validação, dependências. Fácil de ler para o usuário em dois minutos, completa para o executor.
 
 Proibido escrever "provavelmente", "presumivelmente" ou suposição sem rótulo. Não sabe: descubra no código, ou pergunte, ou marque como bloqueio — não preencha com plausibilidade.
 
@@ -72,6 +74,7 @@ Nunca emende resolvendo pela implementação que já existe: código e spec dive
 - Escrever ou editar código, config ou migração.
 - Recrutar, conectar, substituir ou briefar agente.
 - Escrever `tasks.md`, `equipe.md`, `bloqueios.md`, `decisoes.md` ou painel.
+- Reescrever, reordenar ou renumerar o texto do usuário no `IDEIAS.md`.
 - Escrita em git ou GitHub.
 - Rodar `maestri floor status` — o status do andar é do Maestro.
 - Criar ou deletar nota, portal, role ou terminal.
